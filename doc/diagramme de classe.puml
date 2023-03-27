@@ -1,0 +1,24 @@
+@startuml
+@startuml
+
+class theme {
+    -nom :string
+    -image : string
+}
+
+class question {
+    -intitulé : string
+    -image :string
+
+}
+
+class reponse {
+    intitulé : string
+    correct : bool
+}
+
+theme"1..1"--"1..*"question
+reponse "4"--"1..*"question
+
+
+@enduml
