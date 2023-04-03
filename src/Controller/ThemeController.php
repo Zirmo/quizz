@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\QuestionRepository;
 use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,24 +13,37 @@ class ThemeController extends AbstractController
 {
     private ThemeRepository $themeRepository;
     private SerializerInterface $serializer;
+    private QuestionRepository $questionRepository;
 
     /**
      * @param ThemeRepository $themeRepository
      * @param SerializerInterface $serializer
+     * @param QuestionRepository $questionRepository
      */
-    public function __construct(ThemeRepository $themeRepository, SerializerInterface $serializer)
+    public function __construct(ThemeRepository $themeRepository, SerializerInterface $serializer, QuestionRepository $questionRepository)
     {
         $this->themeRepository = $themeRepository;
         $this->serializer = $serializer;
+        $this->questionRepository = $questionRepository;
     }
 
 
-    #[Route('/themes', name: 'app_theme', methods: ['GET'])]
+    #[Route('api/themes', name: 'app_theme', methods: ['GET'])]
     public function getTheme(): Response
     {
         $themes = $this->themeRepository->findAll();
-        $themeJson = $this->serializer->serialize($themes, 'json');
+        $themeJson = $this->serializer->serialize($themes, 'json' ,['groups'=>'list_theme']);
 
         return new Response($themeJson, Response::HTTP_OK, ['content-type' => 'application/json']);
+    }
+
+    #[Route('api/themes/{id}/questions', name: 'app_theme_question', methods: ['GET'])]
+    public function getThemeQuestion($id): Response
+    {
+        $themes = $this->themeRepository->find($id);
+        $questions =$themes->getQuestions();
+        $QuestionJson = $this->serializer->serialize($questions, 'json' ,['groups'=>'get_question']);
+
+        return new Response($QuestionJson , Response::HTTP_OK, ['content-type' => 'application/json']);
     }
 }

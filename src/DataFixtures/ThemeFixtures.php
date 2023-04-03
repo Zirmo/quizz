@@ -13,17 +13,20 @@ class ThemeFixtures extends Fixture
     {
         $faker=Factory::create("fr_FR");
         $themes=["animaux","anime","voiture","alcool"];
-
+        $i = 0;
         foreach ($themes as $theme){
             $object=new Theme();
             $object->setNom($theme);
             $object->setImage($faker->imageUrl(500, 300, $object->getNom(), true));
+            $this->addReference("theme".$i,$object);
             $manager->persist($object);
-
+            $i ++;
         }
 
 
 
+
         $manager->flush();
+
     }
 }
