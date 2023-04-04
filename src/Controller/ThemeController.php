@@ -37,11 +37,13 @@ class ThemeController extends AbstractController
         return new Response($themeJson, Response::HTTP_OK, ['content-type' => 'application/json']);
     }
 
-    #[Route('api/themes/{id}/questions/{nbQuestions}', name: 'app_theme_question', methods: ['GET'])]
-    public function getThemeQuestion($id, $nbQuestions): Response
+    #[Route('api/themes/{slug}/questions/{nbQuestions}', name: 'app_theme_question', methods: ['GET'])]
+    public function getThemeQuestion($slug, $nbQuestions): Response
     {
 
-        $questions =$this->questionRepository->findBy(["theme"=>$id]);
+        $themes = $this->themeRepository->findBy(["slug"=>$slug]);
+
+        $questions =$this->questionRepository->findBy(["theme"=>$themes]);
         shuffle($questions);
         $randQuestion = array_slice($questions,0,$nbQuestions);
         $QuestionJson = $this->serializer->serialize($randQuestion, 'json' ,['groups'=>'get_question']);
