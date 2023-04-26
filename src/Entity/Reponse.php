@@ -21,6 +21,7 @@ class Reponse
     private ?string $intutile = null;
 
     #[ORM\Column]
+    #[Groups(['get_question'])]
     private ?bool $correct = null;
 
     #[ORM\ManyToMany(targetEntity: Question::class, mappedBy: 'reponse')]

@@ -30,10 +30,21 @@ class ReponseFixtures extends Fixture implements DependentFixtureInterface
         [ 'intituler' => 'chevre' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => "qu'elle animal fais meuh"])],
         [ 'intituler' => 'cochon' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => "qu'elle animal fais meuh"])],
         [ 'intituler' => 'poulet' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => "qu'elle animal fais meuh"])],
-        [ 'intituler' => 'avec zizi' , 'correct' => '1' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on fais les bébés'])],
-        [ 'intituler' => 'avec un baton' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on fais les bébés'])],
-        [ 'intituler' => 'avec des chips' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on fais les bébés'])],
-        [ 'intituler' => 'avec capote' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on fais les bébés'])],
+
+        [ 'intituler' => 'avec ca bouche' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on dresse un chien'])],
+        [ 'intituler' => 'avec un baton' , 'correct' => '1' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on dresse un chien'])],
+        [ 'intituler' => 'avec des chips' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on dresse un chien'])],
+        [ 'intituler' => 'avec la main' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Comment on dresse un chien'])],
+
+        [ 'intituler' => 'chien' , 'correct' => '1' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Qui mange son marie'])],
+        [ 'intituler' => 'chat' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Qui mange son marie'])],
+        [ 'intituler' => 'mante-religieuse' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Qui mange son marie'])],
+        [ 'intituler' => 'toi' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'Qui mange son marie'])],
+
+        [ 'intituler' => 'dauphin' , 'correct' => '1' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'quel animal est willy dans sauvez willy'])],
+        [ 'intituler' => 'autruche' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'quel animal est willy dans sauvez willy'])],
+        [ 'intituler' => 'clebard' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'quel animal est willy dans sauvez willy'])],
+        [ 'intituler' => 'chipster' , 'correct' => '0' , 'question_id' => $this->questionRepository->findOneBy(["intitule" => 'quel animal est willy dans sauvez willy'])],
 
     ];
 

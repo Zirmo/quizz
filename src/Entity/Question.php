@@ -17,7 +17,7 @@ class Question
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['list_theme','get_question'])]
+    #[Groups(['get_question'])]
     private ?string $intitule = null;
 
     #[ORM\Column(length: 255, nullable: true)]

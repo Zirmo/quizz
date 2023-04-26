@@ -26,7 +26,6 @@ class Theme
     private ?string $image = null;
 
     #[ORM\OneToMany(mappedBy: 'theme', targetEntity: Question::class)]
-    #[Groups(['list_theme'])]
     private Collection $questions;
 
     #[ORM\Column(length: 255)]
